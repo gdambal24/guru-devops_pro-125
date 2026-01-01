@@ -1,27 +1,30 @@
 pipeline {
     agent any
-tools{
-    	maven 'maven'
+
+    tools {
+        maven 'maven'
         jdk 'java-11'
     }
 
     stages {
-        stage('git-checkout') {
+
+        stage('Git Checkout') {
             steps {
                 git branch: 'maven-proj', url: 'https://github.com/gdambal24/guru-devops_pro-125.git'
             }
         }
 
-        stage('compile') {
+        stage('Compile') {
             steps {
-                sh "mvn compile"
+                sh 'mvn compile'
             }
         }
 
         stage('Build') {
             steps {
-                sh "mvn package"
+                sh 'mvn package'
             }
         }
     }
 }
+
