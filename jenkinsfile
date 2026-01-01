@@ -1,0 +1,22 @@
+pipeline{
+	agent any
+
+	Stages{
+		stage ('git-checkout'){
+			steps{
+				git branch: 'maven-proj', url: ' https://github.com/gdambal24/guru-devops_pro-125.git'
+			}
+		}
+
+		stage('compile'){
+			steps{
+				sh "mvn compile"
+			}
+		}
+		stage ('Build'){
+			steps{
+				sh "mvn package"
+			}
+		}
+	}
+}
