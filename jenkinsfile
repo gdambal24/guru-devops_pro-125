@@ -16,9 +16,12 @@ tools{
 
         stage('compile') {
             steps {
-                sh "mvn compile"
-            }
+                dir('maven-proj') {
+                    sh 'mvn compile'
         }
+    }
+}
+
 
         stage('Build') {
             steps {
